@@ -9,13 +9,6 @@ import (
 	"github.com/modeneis/waves-go-client/model"
 )
 
-const (
-	// TestNET is waves test
-	TestNET = "https://testnet1.wavesnodes.com"
-	// MainNET is waves prod
-	MainNET = "https://nodes.wavesnodes.com"
-)
-
 // TransactionsService holds sling instance
 type TransactionsService struct {
 	sling *sling.Sling
