@@ -26,7 +26,7 @@ func TestGetTransactionsInfoID_200(t *testing.T) {
 		Height:          924610,
 	}
 
-	wavesClient := NewTransactionsService()
+	wavesClient := NewTransactionsService(MainNET)
 
 	transaction, res, err := wavesClient.GetTransactionsInfoID(expected.ID)
 	assert.Nil(t, err)
@@ -35,14 +35,14 @@ func TestGetTransactionsInfoID_200(t *testing.T) {
 }
 
 func TestGetTransactionsInfoID_404(t *testing.T) {
-	wavesClient := NewTransactionsService()
+	wavesClient := NewTransactionsService(MainNET)
 	_, res, _ := wavesClient.GetTransactionsInfoID("1234")
 	assert.NotNil(t, res)
 	assert.Equal(t, 404, res.StatusCode)
 }
 
 func TestGetTransactionsInfoID_404_TestNET(t *testing.T) {
-	wavesClient := NewTransactionsServiceTest()
+	wavesClient := NewTransactionsService(TestNET)
 	_, res, _ := wavesClient.GetTransactionsInfoID("1234")
 	assert.NotNil(t, res)
 	assert.Equal(t, 404, res.StatusCode)
